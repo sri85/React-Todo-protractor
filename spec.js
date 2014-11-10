@@ -25,7 +25,7 @@ var todoPageObject = function() {
   this.getTodoItem = function () {
     return browser.driver.findElement(by.xpath('//*[@id="todo-list"]/li/div/label')).getText()
   }
-  //Please make sure that this pageObject is a bit flaky 
+  //Please note  that this pageObject is a bit flaky 
   
   this.deleteTodo = function() {
     ptor = protractor.getInstance()

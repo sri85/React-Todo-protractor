@@ -1,17 +1,20 @@
+// Page Object for interacting with the Todo functionalities.
 var todoPageObject = function() {
   
   
 
   this.get = function() {
-    browser.driver.get('http://localhost:8000/Downloads/todo/react/#/');
+    browser.driver.get('http://localhost:8000/Downloads/todo/react/#/');//Update the place with the appropriate URL
   };
   this.logTitle = function() {
     return  browser.driver.getTitle();
   
   };
+  
   this.getTodoField = function() {
     return browser.driver.findElement(by.id('new-todo'));
-  }
+  };
+  
   this.createTodoItem = function(todo) {
     this.getTodoField().sendKeys(todo);
     ptor = protractor.getInstance()
@@ -22,6 +25,8 @@ var todoPageObject = function() {
   this.getTodoItem = function () {
     return browser.driver.findElement(by.xpath('//*[@id="todo-list"]/li/div/label')).getText()
   }
+  //Please make sure that this pageObject is a bit flaky 
+  
   this.deleteTodo = function() {
     ptor = protractor.getInstance()
     ptor.actions().mouseMove(browser.driver.findElement(by.xpath('//*[@id="todo-list"]/li/div/label'))).perform();
@@ -85,7 +90,7 @@ describe('Todo', function() {
     var todoPage = new todoPageObject();    
     todoPage.createTodoItem();
     expect(todoPage.getTodoItem()).toEqual('undefined');
-    todoPage.deleteTodo()
+    todoPage.deleteTodo();
     
   });
   it('Test whether it is possible to create a todo list with quotes', function() {
@@ -103,7 +108,7 @@ describe('Todo', function() {
     
   }); 
   
-  it('Test whether it is not possible to add maliciuos script contents , it must no display any alert.', function() {
+  it('Test whether it is not possible to add malicious script contents , it must no display any alert.', function() {
     var todoPage = new todoPageObject(); 
      
     todoPage.createTodoItem('><script>alert("hi")</script><');
@@ -128,7 +133,8 @@ describe('Todo', function() {
         
     }
 
-  }); 
+  });
+  
   it('Test clearCompleted functionality.', function() {
     var todoPage = new todoPageObject();
     
@@ -235,7 +241,7 @@ describe('Todo', function() {
     
   });
   
-  it('Test whether the toggle action of MarkallTodo works', function() {
+  it('Test whether the toggle action of MarkallTodo ', function() {
     var todoPage = new todoPageObject();
         
     todoPage.createTodoItem('test');
@@ -246,6 +252,12 @@ describe('Todo', function() {
     expect(todoPage.getTodoCount()).toEqual('3 items left');
     
     
+    
+  });
+  
+  it('Test the title of the page ',function(){
+    var todoPage = new todoPageObject();
+    expect(todoPage.logTitle()).toEqual('React • TodoMVC')
   });
   
   

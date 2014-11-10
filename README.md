@@ -15,6 +15,7 @@ Prerequisites
 5. Install the webdriver manager using ```webdriver-manager update --standalone```
 
 Running the tests
+
 1.Download the repository on repo
 
 2. Start the http server using ```python -m SimpleHTTPServer``` (Or any other HTTP server like apache would do)

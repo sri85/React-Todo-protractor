@@ -4,6 +4,7 @@ React-Todo-protractor
 This repo has tests written for a react Todo which are written in protractor
 
 Prerequisites
+
 1. Please make sure that python is installed and be found in the path .
 
 2. Install nodejs on the system 

@@ -26,7 +26,7 @@ Running the tests
 4. Start the selenium server using ```webdriver-manager start``` 
 
 
-5.  Open conf.js and update the ```browser.driver.get('Please update the URL from where the app is accessible');``` with the   URL where the app is accessible.
+5.  Open spec.js and update the ```browser.driver.get('Please update the URL from where the app is accessible');``` with the   URL where the app is accessible.
 
 5.  Open a command line interface and run the tests using ```protractor conf.js```
 
